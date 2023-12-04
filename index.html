@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ramaraja&family=Roboto:wght@400;500;700&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+:root {
+  --primary: #824FF1;
+  --logo: #0A1B32;
+  --text-dark: #1B0A42;
+  --text-light: #9A9A9A;
+  --white: #ffffff;
+  --container: 122rem;
+  --nav-height: 7rem;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+
+/* scrollbar code */
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+ ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+ ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navigation {
+  height: var(--nav-height);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 3rem;
+  color: var(--logo);
+  font-weight: 700;
+}
+
+.nav_menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: var(--white);
+}
+
+.nav_list {
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
+.nav_list .nav_link {
+  padding: 0.7rem 2rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  border-radius: 0.6rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav_links .nav_link:active,
+.nav_links .nav_link:focus,
+.nav_link.active {
+  transition: all 0.5s ease-in-out;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.hero_container {
+  padding: 5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero_content {
+  width: 100%;
+}
+
+.section-heading {
+  font-size: 7.2rem;
+  line-height: 7.6rem;
+  font-family: 'Ramaraja', serif;
+  color: var(--text-dark);
+}
+
+.text-light {
+  font-size: 2rem;
+  color: var(--text-light);
+}
+
+.cta_btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  border-radius: 0.6rem;
+}
+
+.hero_image {
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+@media (max-width:939px) {
+  .section-heading {
+    font-size: 6rem;
+    line-height: 6rem;
+
+
+
+    
+  }
+}
+
+@media (max-width:768px) {
+  .section-heading {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+  .navigation {
+    justify-content: space-between;
+  }
+  .mobile_menu_icon {
+    width: 3.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .mobile_menu_toggle {
+    background: var(--text-dark);
+    width: 100%;
+    height: 0.35rem;
+    position: relative;
+    border-radius: 0.35rem;
+    transition: all 0.5s ease-in-out;
+  }
+  .mobile_menu_toggle::before,
+  .mobile_menu_toggle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.35rem;
+    border-radius: inherit;
+    background: var(--text-dark);
+    transition: all 0.5s ease-in-out;
+  }
+  .mobile_menu_toggle.active {
+    background: transparent;
+  }
+  .mobile_menu_toggle::before {
+    transform: translateY(-0.9rem);
+  }
+  .mobile_menu_toggle.active::before {
+    transform: rotate(45deg);
+  }
+  .mobile_menu_toggle::after {
+    transform: translateY(0.9rem);
+  }
+  .mobile_menu_toggle.active::after {
+    transform: rotate(-45deg);
+  }
+  .nav_menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    padding: 2rem 0 4rem 0;
+    flex-direction: column;
+    visibility: hidden;
+    pointer-events: none;
+    clip-path: circle(0% at 100% 0);
+    transition: all 0.5s ease-in-out;
+  }
+  .nav_list {
+    display: block;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .nav_menu.active {
+    background: var(--white);
+    display: flex;
+    visibility: visible;
+    pointer-events: auto;
+    clip-path: circle(100% at 50% 0);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+@media (max-width:577px) {
+  .hero_image {
+    grid-row: 1;
+  }
+  .hero_content {
+    grid-row: 2;
+  }
+}
+button{
+    background-color: #04AA6D;
+    border:none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+.button{background-color: #04AA6D;}
+.button{ border-radius: 15px;}
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+
+  <body>
+    <section id="hero">
+      <!-- Navigation-start -->
+      <header>
+        <div class="container">
+          <nav class="navigation">
+            <a href="#!" class="logo">Medi.</a>
+            <div class="mobile_menu_icon">
+              <div class="mobile_menu_toggle"></div>
+            </div>
+            <ul class="nav_menu">
+              <div class="nav_links">
+                <li class="nav_list">
+                  <a href="#!" class="nav_link">Home</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#!" class="nav_link">About</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#!" class="nav_link">Blog</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#!" class="nav_link">Contact</a>
+                </li>
+              </div>
+              <div class="cta_links">
+                <li class="nav_list">
+                  <a href="#!" class="nav_link"login></a>
+                  <a href="login.html"><button class="button">LOGIN</button></a>
+                  
+                </li>
+                <li class="nav_list">
+                  
+                  <a href="singup.html"><button class="button">sign up</button></a>
+                </li>
+              </div>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="./visual img/4.png" style="width:90%">
+          <div class="text">WELCOME</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="./visual img/1691129953_womaooooooooo.jpg" style="width:90%">
+          <div class="text">TO MY</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="./visual img/nsl552-healthmatter1111'.jpg" style="width:90%">
+          <div class="text">APPLICATION</div>
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+      <!-- Navigation-end -->
+      <!-- Hero-content-section-start -->
+      <div class="container">
+        <div class="hero_container">
+          <div class="hero_content">
+            <h1 class="section-heading">Stay Productive & Work Remotely</h1>
+            <p class="text-light">The key to work-from-home success is to create an enviroment that allows you to focus on the tasks at hand. Whether you are working from home for the first time.</p>
+            <p class="text-light">घर से काम करने में सफलता की कुंजी एक ऐसा वातावरण बनाना है जो आपको हाथ में लिए गए कार्यों पर ध्यान केंद्रित करने की अनुमति दे। चाहे आप पहली बार घर से काम कर रहे हों।</p>
+            <p class="text-light">जिन का मन स्थिर नहीं है, वे किसी भी काम में आसानी से सफलता हासिल नहीं कर पाते हैं। मन काबू हो जाए तो हम कई तरह की परेशानियों से बच सकते हैं। नकारात्मक विचारों से बचने के लिए मेडिटेशन हर रोज करना चाहिए।</p>
+            <a href="#!" class="cta_btn">Learn More</a>
+          </div>
+          <div class="hero_image">
+            <img src="./visual img/GettyImages-1365669010.jpg" alt="Image" class="hero-img">
+          </div>
+        </div>
+      </div>
+      <!-- Hero-content-section-end -->
+    </section>
+    <script>
+    let icon = document.querySelector('.mobile_menu_icon');
+let icon_toggle = document.querySelector('.mobile_menu_toggle');
+let mobile_menu = document.querySelector('.nav_menu');
+
+icon.addEventListener('click', () => {
+  icon_toggle.classList.toggle('active');
+  mobile_menu.classList.toggle('active');
+})
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+</script>
+  </body>
+
+
+</html>
